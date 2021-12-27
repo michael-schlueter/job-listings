@@ -16,7 +16,7 @@ interface JobType {
     languages: string[];
     tools: string[];
   };
-  handleTagClick: any;
+  handleTagClick: (tag: string) => void;
 }
 
 export default function JobListing({ job, handleTagClick }: JobType) {

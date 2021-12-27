@@ -19,7 +19,7 @@ interface JobType {
 }
 
 function App() {
-  const [filters, setFilters] = useState([]);
+  const [filters, setFilters] = useState<string[]>([]);
 
   const filterFunction = ({ role, level, tools, languages }: JobType) => {
     if (filters.length === 0) {
@@ -36,16 +36,16 @@ function App() {
       tags.push(...languages);
     }
 
-    return tags.some((tag) => filters.includes(tag));
+    return filters.every(filter => tags.includes(filter));
   };
 
-  const handleTagClick = (tag) => {
+  const handleTagClick = (tag: string) => {
     if (filters.includes(tag)) return;
 
     setFilters([...filters, tag]);
   };
 
-  const handleFilterClick = (passedFilter) => {
+  const handleFilterClick = (passedFilter: string) => {
     setFilters(filters.filter((f) => f !== passedFilter));
   };
 
@@ -62,7 +62,7 @@ function App() {
       </header>
       <div className="container m-auto">
       {filters.length !== 0 && (
-        <div className="flex bg-white shadow-md my-16 mx-10 p-6 rounded">
+        <div className="flex bg-white shadow-md -my-24 mb-16 mx-10 p-6 rounded relative z-10">
           {filters.map((filter) => (
             <span
               onClick={() => handleFilterClick(filter)}

@@ -62,7 +62,7 @@ function App() {
       </header>
       <div className="container m-auto">
       {filters.length !== 0 && (
-        <div className="flex bg-white shadow-md -my-24 mb-16 mx-10 p-6 rounded relative z-10">
+        <div className="flex bg-white shadow-md -my-[88px] mb-16 mx-10 p-6 rounded relative z-10">
           {filters.map((filter, index) => (
             // <span
             //   onClick={() => handleFilterClick(filter)}
@@ -70,7 +70,7 @@ function App() {
             // >
             //  ✕ {filter}
             // </span>
-            <h3 key={index} className="flex justify-center items-center border-0 rounded-md pt-0 pr-0 pb-0 pl-2 mt-4 mr-4 text-desaturated-dark-cyan bg-teal-50 font-bold ">{filter}
+            <h3 key={index} className="flex justify-center items-center border-0 rounded-md pt-0 pr-0 pb-0 pl-2 mr-4 text-desaturated-dark-cyan bg-teal-50 font-bold ">{filter}
                                 <button onClick={() => {handleFilterClick(filter)}} className="pointer flex justify-center items-center border-0 w-8 h-8 ml-2 bg-desaturated-dark-cyan rounded-tr-sm rounded-br-sm hover:bg-very-dark-grayish-cyan">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"><title>remove filter</title><path fill="#FFF" fillRule="evenodd" d="M11.314 0l2.121 2.121-4.596 4.596 4.596 4.597-2.121 2.121-4.597-4.596-4.596 4.596L0 11.314l4.596-4.597L0 2.121 2.121 0l4.596 4.596L11.314 0z"/></svg>
                                 </button>

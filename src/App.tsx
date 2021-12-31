@@ -26,8 +26,10 @@ function App() {
       return true;
     }
 
+    // create a joint array for tags consisting of role, level, tools and languages
     const tags = [role, level];
 
+    // if tools / languages exist, add them to the joint array
     if (tools) {
       tags.push(...tools);
     }
@@ -36,23 +38,28 @@ function App() {
       tags.push(...languages);
     }
 
+    // compare active filters to the tags
     return filters.every((filter) => tags.includes(filter));
   };
 
+  // add tag as an active filter
   const handleTagClick = (tag: string) => {
     if (filters.includes(tag)) return;
 
     setFilters([...filters, tag]);
   };
 
+  // activate a filter
   const handleFilterClick = (passedFilter: string) => {
     setFilters(filters.filter((f) => f !== passedFilter));
   };
 
+  // remove all filters
   const clearFilters = () => {
     setFilters([]);
   };
 
+  // only display jobs where the active filters and tags are overlapping
   const filteredJobs = data.filter(filterFunction);
 
   return (
@@ -65,20 +72,21 @@ function App() {
         />
       </header>
       <div className="container m-auto">
+        {/* display only when filters are active */}
         {filters.length !== 0 && (
-          <div className="flex bg-white shadow-md -my-[92px] mb-16 mx-10 p-6 rounded relative z-10">
+          <div className="flex bg-white -my-[92px] mb-16 mx-10 p-6 rounded shadow-md relative z-10">
             <div className="flex flex-wrap">
               {filters.map((filter, index) => (
                 <h3
                   key={index}
-                  className="flex justify-center items-center border-0 rounded-md pt-0 pr-0 pb-0 pl-2 mr-4 my-1 text-desaturated-dark-cyan bg-light-grayish-cyan-filter-tablets font-bold "
+                  className="flex justify-center items-center text-desaturated-dark-cyan bg-light-grayish-cyan-filter-tablets font-bold pt-0 pr-0 pb-0 pl-2 mr-4 my-1 border-0 rounded-md"
                 >
                   {filter}
                   <button
                     onClick={() => {
                       handleFilterClick(filter);
                     }}
-                    className="pointer flex justify-center items-center border-0 w-8 h-8 ml-2 bg-desaturated-dark-cyan rounded-tr-sm rounded-br-sm hover:bg-very-dark-grayish-cyan"
+                    className="cursor-pointer flex justify-center items-center bg-desaturated-dark-cyan hover:bg-very-dark-grayish-cyan w-8 h-8 ml-2 border-0 rounded-tr-sm rounded-br-sm"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +106,7 @@ function App() {
             </div>
             <button
               onClick={clearFilters}
-              className="font-bold text-gray-400 ml-auto mr-10 hover:text-desaturated-dark-cyan hover:underline"
+              className="text-gray-400 font-bold ml-auto mr-10 hover:text-desaturated-dark-cyan hover:underline"
             >
               Clear
             </button>

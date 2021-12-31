@@ -25,7 +25,7 @@
 
 
 ## Screenshots
-![Example screenshot](https://ibb.co/sHY2xmg)
+![Example screenshot](https://i.ibb.co/KwvX405/job-listings-screenshot.jpg)
 
 
 

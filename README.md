@@ -1,5 +1,5 @@
 # Job Listings
-> This project is a challenge from [frontendmentor](https://www.frontendmentor.io). The challenge was to build a landing page displaying job opportunities with the ability to filter them based on different categories.
+> This project is a challenge from [frontendmentor](https://www.frontendmentor.io). The [challenge](https://www.frontendmentor.io/challenges/job-listings-with-filtering-ivstIPCt/hub/job-listings-with-filtering-4A21jMX4g) was to build a landing page displaying job opportunities with the ability to filter them based on different categories.
 
 
 
